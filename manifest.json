@@ -1,0 +1,23 @@
+{
+  "name": "Fine Menu Admin",
+
+  "short_name": "Fine Menu",
+
+  "start_url": "admin.html",
+
+  "display": "standalone",
+
+  "background_color": "#0f0f0f",
+
+  "theme_color": "#00ff99",
+
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
