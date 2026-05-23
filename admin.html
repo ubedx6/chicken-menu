@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Panel</title>
+
+ <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Poppins',sans-serif;
+
+  background:
+  linear-gradient(
+    180deg,
+    #07140f,
+    #0f0f0f
+  );
+
+  color:white;
+
+  padding:20px;
+
+  min-height:100vh;
+}
+
+
+
+h1{
+
+  text-align:center;
+
+  font-size:34px;
+
+  margin-bottom:30px;
+
+  color:#00ff99;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+
+
+.card{
+
+  background:
+  rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(18px);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+
+  padding:22px;
+
+  margin-bottom:25px;
+
+  box-shadow:
+  0 8px 30px rgba(0,0,0,0.35);
+
+  transition:0.3s;
+}
+
+
+
+.card:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 15px 35px rgba(0,255,153,0.08);
+}
+
+
+
+.card h2{
+
+  color:#00ff99;
+
+  margin-bottom:22px;
+
+  font-size:24px;
+
+  font-weight:600;
+}
+
+
+
+.item{
+
+  margin-bottom:22px;
+}
+
+
+
+label{
+
+  display:block;
+
+  margin-bottom:10px;
+
+  font-size:15px;
+
+  color:#bfbfbf;
+
+  font-weight:500;
+}
+
+
+
+.inputBox{
+
+  position:relative;
+}
+
+
+
+.currency{
+
+  position:absolute;
+
+  left:18px;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  color:#00ff99;
+
+  font-size:22px;
+
+  font-weight:600;
+}
+
+
+
+input{
+
+  width:100%;
+
+  padding:
+  18px 18px 18px 55px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  color:white;
+
+  font-size:24px;
+
+  font-weight:600;
+
+  outline:none;
+
+  transition:0.25s;
+}
+
+
+
+input:focus{
+
+  border:
+  2px solid #00ff99;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  box-shadow:
+  0 0 15px rgba(0,255,153,0.15);
+}
+
+
+
+.saveBtn{
+
+  position:fixed;
+
+  bottom:20px;
+
+  left:20px;
+
+  right:20px;
+
+  padding:20px;
+
+  border:none;
+
+  border-radius:24px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #00ff99,
+    #00d37f
+  );
+
+  color:black;
+
+  font-size:22px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:
+  0 10px 30px rgba(0,255,153,0.35);
+
+  transition:0.3s;
+}
+
+
+
+.saveBtn:hover{
+
+  transform:scale(1.02);
+}
+
+
+
+.saveBtn:active{
+
+  transform:scale(0.98);
+}
+
+
+
+.space{
+
+  height:120px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🐔 Fine Menu Admin</h1>
+
+
+
+<div class="card">
+
+  <h2>Chicken</h2>
+
+  <div class="item">
+
+    <label>Skinless Chicken</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="skinless" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Boneless Chicken</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="boneless" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Live Bird</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="liveBird" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Liver</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="liver" step="10">
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+  <h2>Mutton</h2>
+
+  <div class="item">
+
+    <label>With Bones</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="withBones" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Boneless</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="muttonBoneless" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Botee</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="botee" step="10">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Leggs</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="leggs" step="10">
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+  <h2>Eggs</h2>
+
+  <div class="item">
+
+    <label>12 Eggs</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="eggs12">
+
+    </div>
+
+  </div>
+
+
+
+  <div class="item">
+
+    <label>Tray Eggs</label>
+
+    <div class="inputBox">
+
+      <span class="currency">₹</span>
+
+      <input type="number" id="trayEggs">
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<button class="saveBtn"
+onclick="savePrices()">
+
+💾 SAVE PRICES
+
+</button>
+
+<div class="space"></div>
+
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  update,
+  onValue
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDcR3gYBt_2qBBzQEymUE_pfleZ6k5sdG0",
+
+  authDomain: "fine-chicken-menu.firebaseapp.com",
+
+  databaseURL: "https://fine-chicken-menu-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  projectId: "fine-chicken-menu",
+
+  storageBucket: "fine-chicken-menu.firebasestorage.app",
+
+  messagingSenderId: "533272602462",
+
+  appId: "1:533272602462:web:0dc1845a368e454fbfd1cf"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+const chickenRef = ref(db, 'menu/chicken');
+
+const muttonRef = ref(db, 'menu/mutton');
+
+const eggsRef = ref(db, 'menu/eggs');
+
+onValue(chickenRef, (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("skinless").value =
+    data.skinless;
+
+  document.getElementById("boneless").value =
+    data.boneless;
+
+  document.getElementById("liveBird").value =
+    data.liveBird;
+
+  document.getElementById("liver").value =
+    data.liver;
+
+});
+
+onValue(muttonRef, (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("withBones").value =
+    data.withBones;
+
+  document.getElementById("muttonBoneless").value =
+    data.boneless;
+
+  document.getElementById("botee").value =
+    data.botee;
+
+  document.getElementById("leggs").value =
+    data.leggs;
+
+});
+
+
+onValue(eggsRef, (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("eggs12").value =
+    data.eggs12;
+
+  document.getElementById("trayEggs").value =
+    data.trayEggs;
+
+});
+
+
+window.savePrices = function(){
+
+  update(chickenRef, {
+
+    skinless:
+      document.getElementById("skinless").value,
+
+    boneless:
+      document.getElementById("boneless").value,
+
+    liveBird:
+      document.getElementById("liveBird").value,
+
+    liver:
+      document.getElementById("liver").value
+
+  });
+
+update(muttonRef, {
+
+  withBones:
+    document.getElementById("withBones").value,
+
+  boneless:
+    document.getElementById("muttonBoneless").value,
+
+  botee:
+    document.getElementById("botee").value,
+
+  leggs:
+    document.getElementById("leggs").value
+
+});
+
+
+update(eggsRef, {
+
+  eggs12:
+    document.getElementById("eggs12").value,
+
+  trayEggs:
+    document.getElementById("trayEggs").value
+
+});
+  alert("Prices Updated!");
+
+}
+
+</script>
+
+</body>
+</html>
