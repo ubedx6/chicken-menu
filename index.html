@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fine Chicken Market</title>
+
+  <style>
+@font-face {
+  font-family: 'Aprila';
+  src: url('fonts/Aprila-Bold.otf');
+}
+    body{
+      margin:0;
+      overflow:hidden;
+      background:black;
+      font-family:Arial;
+    }
+
+    .slide{
+      width:100vw;
+      height:100vh;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      transition:opacity 1s;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .active{
+      opacity:1;
+    }
+
+   .price{
+  position:static;
+
+  bottom:95px;
+  right:120px;
+
+  font-size:90px;
+
+  font-family:'Aprila';
+
+  color:#0b4d00;
+
+  font-weight:bold;
+
+  letter-spacing:2px;
+
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+  </style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active"
+     style="background-image:url('images/page1.jpg')">
+
+  <div class="price" id="skinlessPrice"></div>
+
+</div>
+
+
+<!-- Slide 2 -->
+<div class="slide"
+     style="background-image:url('images/page2.jpg')">
+
+  <div class="price" id="withBonesPrice"></div>
+
+</div>
+
+
+<!-- Slide 3 -->
+<div class="slide"
+     style="background-image:url('images/page3.jpg')">
+
+  <div class="price" id="muttonBonelessPrice"></div>
+
+</div>
+
+
+<!-- Slide 4 -->
+<div class="slide"
+     style="background-image:url('images/page4.jpg')">
+
+  <div class="price" id="bonelessPrice"></div>
+
+</div>
+
+
+<!-- Slide 5 -->
+<div class="slide"
+     style="background-image:url('images/page5.jpg')">
+
+  <div class="price" id="eggs12Price"></div>
+
+</div>
+
+
+<!-- Slide 6 -->
+<div class="slide"
+     style="background-image:url('images/page6.jpg')">
+
+  <div class="price" id="trayEggsPrice"></div>
+
+</div>
+
+
+<!-- Slide 7 -->
+<div class="slide"
+     style="background-image:url('images/page7.jpg')">
+
+  <div class="price" id="boteePrice"></div>
+
+</div>
+
+
+<!-- Slide 8 -->
+<div class="slide"
+     style="background-image:url('images/page8.jpg')">
+
+  <div class="price" id="leggsPrice"></div>
+
+</div>
+
+
+<!-- Slide 9 -->
+<div class="slide"
+     style="background-image:url('images/page9.jpg')">
+
+  <div class="price" id="liverPrice"></div>
+
+</div>
+
+
+<!-- Slide 10 -->
+<div class="slide"
+     style="background-image:url('images/page10.jpg')">
+
+  <div class="price" id="liveBirdPrice"></div>
+
+</div>
+
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  onValue
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDcR3gYBt_2qBBzQEymUE_pfleZ6k5sdG0",
+
+  authDomain: "fine-chicken-menu.firebaseapp.com",
+
+  databaseURL: "https://fine-chicken-menu-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  projectId: "fine-chicken-menu",
+
+  storageBucket: "fine-chicken-menu.firebasestorage.app",
+
+  messagingSenderId: "533272602462",
+
+  appId: "1:533272602462:web:0dc1845a368e454fbfd1cf"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+
+onValue(ref(db, 'menu/chicken'), (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("skinlessPrice")
+    .innerHTML = "Rs. " + data.skinless;
+
+  document.getElementById("bonelessPrice")
+    .innerHTML = "Rs. " + data.boneless;
+
+  document.getElementById("liverPrice")
+    .innerHTML = "Rs. " + data.liver;
+
+  document.getElementById("liveBirdPrice")
+    .innerHTML = "Rs. " + data.liveBird;
+
+});
+
+
+
+onValue(ref(db, 'menu/mutton'), (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("withBonesPrice")
+    .innerHTML = "Rs. " + data.withBones;
+
+  document.getElementById("muttonBonelessPrice")
+    .innerHTML = "Rs. " + data.boneless;
+
+  document.getElementById("boteePrice")
+    .innerHTML = "Rs. " + data.botee;
+
+  document.getElementById("leggsPrice")
+    .innerHTML = "Rs. " + data.leggs;
+
+});
+
+
+
+onValue(ref(db, 'menu/eggs'), (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document.getElementById("eggs12Price")
+    .innerHTML = "Rs. " + data.eggs12;
+
+  document.getElementById("trayEggsPrice")
+    .innerHTML = "Rs. " + data.trayEggs;
+
+});
+
+
+
+
+const slides = document.querySelectorAll(".slide");
+
+let current = 0;
+
+setInterval(()=>{
+
+  slides[current].classList.remove("active");
+
+  current++;
+
+  if(current >= slides.length){
+    current = 0;
+  }
+
+  slides[current].classList.add("active");
+
+}, 4000);
+
+</script>
+
+</body>
+</html>
