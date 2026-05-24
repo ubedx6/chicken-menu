@@ -2,25 +2,27 @@
 <html>
 
 <head>
-  <title>Admin Panel</title>
 
-<link rel="manifest"
-href="manifest.json">
+  <title>Fine Menu Admin</title>
 
-<link rel="apple-touch-icon"
-href="icons/icon-512.png">
+  <link rel="manifest" href="manifest.json">
 
-<meta name="apple-mobile-web-app-capable"
-content="yes">
+  <link rel="apple-touch-icon"
+  href="icons/icon-512.png">
 
-<meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
+  <meta name="apple-mobile-web-app-capable"
+  content="yes">
 
-<meta name="mobile-web-app-capable"
-content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent">
 
-<meta name="theme-color"
-content="#00ff99">
+  <meta name="mobile-web-app-capable"
+  content="yes">
+
+  <meta name="theme-color"
+  content="#00ff99">
+
+
 
 <style>
 
@@ -52,19 +54,230 @@ body{
 
 
 
-h1{
+.topBar{
 
-  text-align:center;
+  display:flex;
 
-  font-size:34px;
+  align-items:center;
 
-  margin-bottom:30px;
+  gap:20px;
 
-  color:#00ff99;
+  margin-bottom:25px;
+}
+
+
+
+.logoTitle{
+
+  font-size:28px;
 
   font-weight:700;
 
-  letter-spacing:1px;
+  color:#00ff99;
+}
+
+
+
+#menuBtn{
+
+  font-size:34px;
+
+  cursor:pointer;
+
+  padding:10px 15px;
+
+  border-radius:15px;
+
+  background:
+  rgba(255,255,255,0.05);
+}
+
+
+#sideMenu{
+
+  position:fixed;
+
+  top:0;
+
+  left:-85%;
+
+  width:80%;
+
+  height:100vh;
+
+  background:#111;
+
+  z-index:999999;
+
+  transition:0.35s;
+
+  padding:25px;
+
+  box-shadow:
+  10px 0 30px rgba(0,0,0,0.4);
+}
+
+
+
+#sideMenu.active{
+
+  left:0;
+}
+
+
+
+.menuHeader{
+
+  font-size:30px;
+
+  font-weight:700;
+
+  color:#00ff99;
+
+  margin-bottom:40px;
+}
+
+
+
+.menuItem{
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  margin-bottom:15px;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+
+
+#settingsScreen{
+
+  position:fixed;
+
+  top:0;
+
+  right:-100%;
+
+  width:100%;
+
+  height:100vh;
+
+  background:#0f0f0f;
+
+  z-index:99999;
+
+  transition:0.35s;
+
+  padding:25px;
+}
+
+
+
+#settingsScreen.active{
+
+  right:0;
+}
+
+
+
+.settingsHeader{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:20px;
+
+  margin-bottom:30px;
+}
+
+
+
+#backBtn{
+
+  font-size:32px;
+
+  cursor:pointer;
+}
+
+
+
+.settingsCard{
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border-radius:30px;
+
+  padding:25px;
+}
+
+
+
+.settingsCard h3{
+
+  margin-bottom:25px;
+
+  color:#00ff99;
+}
+
+
+
+.arrowGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  1fr 1fr;
+
+  gap:15px;
+}
+
+
+
+.arrowBtn{
+
+  padding:28px;
+
+  font-size:32px;
+
+  border:none;
+
+  border-radius:25px;
+
+  background:#1f1f1f;
+
+  color:#00ff99;
+}
+
+
+
+#savePositionBtn{
+
+  width:100%;
+
+  margin-top:25px;
+
+  padding:20px;
+
+  border:none;
+
+  border-radius:22px;
+
+  background:#00ff99;
+
+  color:black;
+
+  font-size:20px;
+
+  font-weight:700;
 }
 
 
@@ -261,84 +474,178 @@ input:focus{
 .space{
 
   height:120px;
+}
 
-  #previewArea{
+#overlay{
 
-  position:relative;
+  position:fixed;
+
+  top:0;
+
+  left:0;
 
   width:100%;
 
-  height:400px;
+  height:100vh;
 
-  background:#111;
+  background:
+  rgba(0,0,0,0.5);
 
-  border-radius:25px;
+  z-index:999998;
 
-  overflow:hidden;
+  opacity:0;
 
-  margin-top:20px;
+  pointer-events:none;
 
-  border:
-  2px dashed rgba(255,255,255,0.1);
-
+  transition:0.3s;
 }
 
 
 
-#dragPrice{
+#overlay.active{
 
-  position:absolute;
+  opacity:1;
 
-  left:70%;
-
-  top:82%;
-
-  transform:translate(-50%,-50%);
-
-  font-size:42px;
-
-  font-family:'Aprila';
-
-  color:#00ff99;
-
-  font-weight:bold;
-
-  cursor:grab;
-
-  user-select:none;
-
+  pointer-events:auto;
 }
 
-
-
-#savePosition{
-
-  width:100%;
-
-  margin-top:20px;
-
-  padding:18px;
-
-  border:none;
-
-  border-radius:20px;
-
-  background:#00ff99;
-
-  color:black;
-
-  font-size:20px;
-
-  font-weight:bold;
-
-}
 
 </style>
+
 </head>
 
 <body>
 
-<h1>🐔 Fine Menu Admin</h1>
+
+
+<div class="topBar">
+
+  <div id="menuBtn">
+
+    ☰
+
+  </div>
+
+  <div class="logoTitle">
+
+    🐔 Fine Menu Admin
+
+  </div>
+
+</div>
+
+
+<div id="overlay"></div>
+
+
+ <div id="sideMenu">
+
+  <div class="menuHeader">
+
+    Fine Menu
+
+  </div>
+
+
+
+  <div class="menuItem"
+  id="displaySettingsBtn">
+
+    📺 Display Settings
+
+  </div>
+
+
+
+  <div class="menuItem">
+
+    🎨 Themes
+
+  </div>
+
+
+
+  <div class="menuItem">
+
+    ℹ About
+
+  </div>
+
+</div>
+
+
+
+<div id="settingsScreen">
+
+  <div class="settingsHeader">
+
+    <div id="backBtn">
+
+      ←
+
+    </div>
+
+    <h2>Display Settings</h2>
+
+  </div>
+
+
+
+  <div class="settingsCard">
+
+    <h3>Price Position</h3>
+
+
+
+    <div class="arrowGrid">
+
+      <button class="arrowBtn"
+      id="upBtn">
+
+        ↑
+
+      </button>
+
+
+
+      <button class="arrowBtn"
+      id="leftBtn">
+
+        ←
+
+      </button>
+
+
+
+      <button class="arrowBtn"
+      id="rightBtn">
+
+        →
+
+      </button>
+
+
+
+      <button class="arrowBtn"
+      id="downBtn">
+
+        ↓
+
+      </button>
+
+    </div>
+
+
+
+    <button id="savePositionBtn">
+
+      SAVE POSITION
+
+    </button>
+
+  </div>
+
+</div>
 
 
 
@@ -412,8 +719,6 @@ input:focus{
 
 
 
-
-
 <div class="card">
 
   <h2>Mutton</h2>
@@ -484,8 +789,6 @@ input:focus{
 
 
 
-
-
 <div class="card">
 
   <h2>Eggs</h2>
@@ -524,36 +827,12 @@ input:focus{
 
 
 
-
-
 <button class="saveBtn"
 onclick="savePrices()">
 
 💾 SAVE PRICES
 
 </button>
-
-<div class="card">
-
-  <h2>Live Position Editor</h2>
-
-  <div id="previewArea">
-
-    <div id="dragPrice">
-
-      Rs. 560
-
-    </div>
-
-  </div>
-
-  <button id="savePosition">
-
-    SAVE POSITION
-
-  </button>
-
-</div>
 
 <div class="space"></div>
 
@@ -603,6 +882,8 @@ const muttonRef = ref(db, 'menu/mutton');
 
 const eggsRef = ref(db, 'menu/eggs');
 
+
+
 onValue(chickenRef, (snapshot)=>{
 
   const data = snapshot.val();
@@ -620,6 +901,8 @@ onValue(chickenRef, (snapshot)=>{
     data.liver;
 
 });
+
+
 
 onValue(muttonRef, (snapshot)=>{
 
@@ -640,6 +923,7 @@ onValue(muttonRef, (snapshot)=>{
 });
 
 
+
 onValue(eggsRef, (snapshot)=>{
 
   const data = snapshot.val();
@@ -651,6 +935,7 @@ onValue(eggsRef, (snapshot)=>{
     data.trayEggs;
 
 });
+
 
 
 window.savePrices = function(){
@@ -671,106 +956,118 @@ window.savePrices = function(){
 
   });
 
-update(muttonRef, {
-
-  withBones:
-    document.getElementById("withBones").value,
-
-  boneless:
-    document.getElementById("muttonBoneless").value,
-
-  botee:
-    document.getElementById("botee").value,
-
-  leggs:
-    document.getElementById("leggs").value
-
-});
 
 
-update(eggsRef, {
+  update(muttonRef, {
 
-  eggs12:
-    document.getElementById("eggs12").value,
+    withBones:
+      document.getElementById("withBones").value,
 
-  trayEggs:
-    document.getElementById("trayEggs").value
+    boneless:
+      document.getElementById("muttonBoneless").value,
 
-});
+    botee:
+      document.getElementById("botee").value,
+
+    leggs:
+      document.getElementById("leggs").value
+
+  });
+
+
+
+  update(eggsRef, {
+
+    eggs12:
+      document.getElementById("eggs12").value,
+
+    trayEggs:
+      document.getElementById("trayEggs").value
+
+  });
+
+
+
   alert("Prices Updated!");
 
 }
 
-const dragPrice =
-document.getElementById("dragPrice");
-
-const previewArea =
-document.getElementById("previewArea");
-
-let isDragging = false;
 
 
 
-dragPrice.addEventListener(
-'touchstart',
-()=>{
+const menuBtn =
+document.getElementById("menuBtn");
 
-  isDragging = true;
+const sideMenu =
+document.getElementById("sideMenu");
 
-});
+const overlay =
+document.getElementById("overlay");
 
+const displaySettingsBtn =
+document.getElementById("displaySettingsBtn");
 
+const settingsScreen =
+document.getElementById("settingsScreen");
 
-document.addEventListener(
-'touchmove',
-(e)=>{
-
-  if(!isDragging) return;
-
-  const rect =
-  previewArea.getBoundingClientRect();
-
-  let x =
-  e.touches[0].clientX - rect.left;
-
-  let y =
-  e.touches[0].clientY - rect.top;
+const backBtn =
+document.getElementById("backBtn");
 
 
 
-  x =
-  Math.max(
-    0,
-    Math.min(x, rect.width)
-  );
+menuBtn.onclick = ()=>{
+
+  sideMenu
+  .classList.add('active');
+
+  overlay
+  .classList.add('active');
+
+};
 
 
 
-  y =
-  Math.max(
-    0,
-    Math.min(y, rect.height)
-  );
+overlay.onclick = ()=>{
+
+  sideMenu
+  .classList.remove('active');
+
+  overlay
+  .classList.remove('active');
+
+};
+
+
+displaySettingsBtn.onclick = ()=>{
+
+  sideMenu
+  .classList.remove('active');
+
+  settingsScreen
+  .classList.add('active');
+
+  overlay
+  .classList.remove('active');
+
+};
 
 
 
-  dragPrice.style.left =
-    x + 'px';
+backBtn.onclick = ()=>{
 
-  dragPrice.style.top =
-    y + 'px';
+  settingsScreen
+  .classList.remove('active');
 
-});
-
+};
 
 
-document.addEventListener(
-'touchend',
-()=>{
 
-  isDragging = false;
+backBtn.onclick = ()=>{
 
-});
+  settingsScreen
+  .classList.remove('active');
+
+};
 
 </script>
 
