@@ -229,32 +229,110 @@ body{
 }
 
 
+.remoteContainer{
 
-.arrowGrid{
+  display:flex;
 
-  display:grid;
+  flex-direction:column;
 
-  grid-template-columns:
-  1fr 1fr;
+  align-items:center;
 
-  gap:15px;
+  gap:18px;
+
+  margin-top:30px;
+}
+
+
+
+.middleRow{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:25px;
 }
 
 
 
 .arrowBtn{
 
-  padding:28px;
+  width:90px;
 
-  font-size:32px;
+  height:90px;
 
   border:none;
 
-  border-radius:25px;
+  border-radius:28px;
 
-  background:#1f1f1f;
+  background:
+  linear-gradient(
+    180deg,
+    #1f1f1f,
+    #121212
+  );
 
   color:#00ff99;
+
+  font-size:36px;
+
+  font-weight:bold;
+
+  box-shadow:
+  0 6px 15px rgba(0,0,0,0.35);
+
+  transition:0.12s;
+
+  cursor:pointer;
+}
+
+
+
+.arrowBtn:active{
+
+  transform:scale(0.92);
+
+  box-shadow:
+  0 0 18px rgba(0,255,153,0.4);
+}
+
+
+
+#previewPrice{
+
+  width:170px;
+
+  height:90px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  border-radius:24px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  color:#00ff99;
+
+  font-size:28px;
+
+  font-family:'Aprila';
+
+  font-weight:bold;
+
+  border:
+  2px solid rgba(255,255,255,0.08);
+
+  transition:0.2s;
+
+  position:relative;
+
+  left:0;
+
+  top:0;
 }
 
 
@@ -597,7 +675,55 @@ input:focus{
 
 
 
-    <div class="arrowGrid">
+    <div class="remoteContainer">
+
+  <button class="arrowBtn"
+  id="upBtn">
+
+    ↑
+
+  </button>
+
+
+
+  <div class="middleRow">
+
+    <button class="arrowBtn"
+    id="leftBtn">
+
+      ←
+
+    </button>
+
+
+
+    <div id="previewPrice">
+
+      Rs. 560
+
+    </div>
+
+
+
+    <button class="arrowBtn"
+    id="rightBtn">
+
+      →
+
+    </button>
+
+  </div>
+
+
+
+  <button class="arrowBtn"
+  id="downBtn">
+
+    ↓
+
+  </button>
+
+</div>
 
       <button class="arrowBtn"
       id="upBtn">
@@ -635,6 +761,8 @@ input:focus{
 
     </div>
 
+
+  
 
 
     <button id="savePositionBtn">
@@ -882,6 +1010,9 @@ const muttonRef = ref(db, 'menu/mutton');
 
 const eggsRef = ref(db, 'menu/eggs');
 
+const settingsRef =
+ref(db,'menu/settings');
+
 
 
 onValue(chickenRef, (snapshot)=>{
@@ -933,6 +1064,19 @@ onValue(eggsRef, (snapshot)=>{
 
   document.getElementById("trayEggs").value =
     data.trayEggs;
+
+});
+
+
+onValue(settingsRef,(snapshot)=>{
+
+  const data = snapshot.val();
+
+  posX = data.x || 0;
+
+  posY = data.y || 0;
+
+  updatePreview();
 
 });
 
@@ -1013,6 +1157,25 @@ document.getElementById("settingsScreen");
 const backBtn =
 document.getElementById("backBtn");
 
+const previewPrice =
+document.getElementById("previewPrice");
+
+let posX = 0;
+
+let posY = 0;
+
+const upBtn =
+document.getElementById("upBtn");
+
+const downBtn =
+document.getElementById("downBtn");
+
+const leftBtn =
+document.getElementById("leftBtn");
+
+const rightBtn =
+document.getElementById("rightBtn");
+
 
 
 menuBtn.onclick = ()=>{
@@ -1068,6 +1231,80 @@ backBtn.onclick = ()=>{
   .classList.remove('active');
 
 };
+
+function updatePreview(){
+
+  previewPrice.style.left =
+    posX + 'px';
+
+  previewPrice.style.top =
+    posY + 'px';
+
+}
+
+
+
+upBtn.onclick = ()=>{
+
+  posY -= 5;
+
+  updatePreview();
+
+};
+
+
+
+downBtn.onclick = ()=>{
+
+  posY += 5;
+
+  updatePreview();
+
+};
+
+
+
+leftBtn.onclick = ()=>{
+
+  posX -= 5;
+
+  updatePreview();
+
+};
+
+
+
+rightBtn.onclick = ()=>{
+
+  posX += 5;
+
+  updatePreview();
+
+};
+
+
+
+const savePositionBtn =
+document.getElementById("savePositionBtn");
+
+
+
+savePositionBtn.onclick = ()=>{
+
+  update(settingsRef,{
+
+    x: posX,
+
+    y: posY
+
+  });
+
+  alert("Position Saved!");
+
+};
+
+
+
 
 </script>
 

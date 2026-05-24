@@ -256,7 +256,8 @@ onValue(ref(db, 'menu/eggs'), (snapshot)=>{
 
 });
 
-onValue(ref(db, 'menu/settings'), (snapshot)=>{
+onValue(ref(db,'menu/settings'),
+(snapshot)=>{
 
   const data = snapshot.val();
 
@@ -264,11 +265,9 @@ onValue(ref(db, 'menu/settings'), (snapshot)=>{
   .querySelectorAll('.price')
   .forEach(price=>{
 
-    price.style.left =
-      data.x + 'vw';
-
-    price.style.top =
-      data.y + 'vh';
+    price.style.transform =
+    `translate(${data.x}px,
+               ${data.y}px)`;
 
   });
 
