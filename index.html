@@ -43,11 +43,11 @@
 
   position:absolute;
 
-  bottom:105px;
+  left:70vw;
 
-  right:150px;
+  top:82vh;
 
-  width:300px;
+  width:20vw;
 
   text-align:center;
 
@@ -198,6 +198,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
+const settingsRef =
+ref(db,'menu/settings');
 
 
 onValue(ref(db, 'menu/chicken'), (snapshot)=>{
@@ -252,6 +254,23 @@ onValue(ref(db, 'menu/eggs'), (snapshot)=>{
 
 });
 
+onValue(ref(db, 'menu/settings'), (snapshot)=>{
+
+  const data = snapshot.val();
+
+  document
+  .querySelectorAll('.price')
+  .forEach(price=>{
+
+    price.style.left =
+      data.x + 'vw';
+
+    price.style.top =
+      data.y + 'vh';
+
+  });
+
+});
 
 
 
