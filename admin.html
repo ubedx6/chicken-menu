@@ -217,9 +217,12 @@ body{
   border-radius:30px;
 
   padding:25px;
+
+  position:relative;
+
+  min-height:700px;
+
 }
-
-
 
 .settingsCard h3{
 
@@ -229,7 +232,42 @@ body{
 }
 
 
+
+#tvPreview{
+
+  position:relative;
+
+  width:100%;
+
+  height:340px;
+
+  background:black;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  margin-bottom:35px;
+
+  border:
+  4px solid #1f1f1f;
+
+  box-shadow:
+  inset 0 0 40px rgba(0,0,0,0.8);
+}
+
+
+
+
 .remoteContainer{
+
+  position:absolute;
+
+  bottom:30px;
+
+  left:0;
+
+  width:100%;
 
   display:flex;
 
@@ -238,8 +276,6 @@ body{
   align-items:center;
 
   gap:18px;
-
-  margin-top:30px;
 }
 
 
@@ -631,13 +667,15 @@ input:focus{
 
  <div id="sideMenu">
 
- <div class="menuHeader">
+  <div class="menuHeader">
 
-  Fine Menu
+    Fine Menu
 
-  <div class="tvLink">
+    <div class="tvLink">
 
-    "https://amazing-arithmetic-236c52.netlify.app/"
+      https://amazing-arithmetic-236c52.netlify.app/
+
+    </div>
 
   </div>
 
@@ -692,55 +730,19 @@ input:focus{
 
 
 
-    <div class="remoteContainer">
+    <div id="tvPreview">
 
-  <button class="arrowBtn"
-  id="upBtn">
+      <div id="previewPrice">
 
-    ↑
+        Rs. 999
 
-  </button>
-
-
-
-  <div class="middleRow">
-
-    <button class="arrowBtn"
-    id="leftBtn">
-
-      ←
-
-    </button>
-
-
-
-    <div id="previewPrice">
-
-      Rs. 560
+      </div>
 
     </div>
 
 
 
-    <button class="arrowBtn"
-    id="rightBtn">
-
-      →
-
-    </button>
-
-  </div>
-
-
-
-  <button class="arrowBtn"
-  id="downBtn">
-
-    ↓
-
-  </button>
-
-</div>
+    <div class="remoteContainer">
 
       <button class="arrowBtn"
       id="upBtn">
@@ -751,21 +753,25 @@ input:focus{
 
 
 
-      <button class="arrowBtn"
-      id="leftBtn">
+      <div class="middleRow">
 
-        ←
+        <button class="arrowBtn"
+        id="leftBtn">
 
-      </button>
+          ←
+
+        </button>
 
 
 
-      <button class="arrowBtn"
-      id="rightBtn">
+        <button class="arrowBtn"
+        id="rightBtn">
 
-        →
+          →
 
-      </button>
+        </button>
+
+      </div>
 
 
 
@@ -776,17 +782,15 @@ input:focus{
 
       </button>
 
+
+
+      <button id="savePositionBtn">
+
+        SAVE POSITION
+
+      </button>
+
     </div>
-
-
-  
-
-
-    <button id="savePositionBtn">
-
-      SAVE POSITION
-
-    </button>
 
   </div>
 
