@@ -241,7 +241,12 @@ body{
 
   height:340px;
 
-  background:black;
+  background:
+  url('images/page1.jpg');
+
+  background-size:cover;
+
+  background-position:center;
 
   border-radius:30px;
 
@@ -263,7 +268,7 @@ body{
 
   position:absolute;
 
-  bottom:30px;
+  bottom:20px;
 
   left:0;
 
@@ -375,23 +380,38 @@ body{
 
 #savePositionBtn{
 
-  width:100%;
+  width:90px;
 
-  margin-top:25px;
-
-  padding:20px;
+  height:90px;
 
   border:none;
 
-  border-radius:22px;
+  border-radius:28px;
 
-  background:#00ff99;
+  background:
+  linear-gradient(
+    180deg,
+    #00ff99,
+    #00d37f
+  );
 
   color:black;
 
-  font-size:20px;
+  font-size:18px;
 
   font-weight:700;
+
+  box-shadow:
+  0 6px 15px rgba(0,255,153,0.25);
+
+  transition:0.12s;
+}
+
+
+
+#savePositionBtn:active{
+
+  transform:scale(0.92);
 }
 
 
@@ -764,6 +784,14 @@ input:focus{
 
 
 
+        <button id="savePositionBtn">
+
+          SAVE
+
+        </button>
+
+
+
         <button class="arrowBtn"
         id="rightBtn">
 
@@ -779,14 +807,6 @@ input:focus{
       id="downBtn">
 
         ↓
-
-      </button>
-
-
-
-      <button id="savePositionBtn">
-
-        SAVE POSITION
 
       </button>
 
