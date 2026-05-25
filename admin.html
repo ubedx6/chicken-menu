@@ -363,8 +363,6 @@ body{
 
   top:50%;
 
-  transform:translate(-50%,-50%);
-
   font-size:42px;
 
   font-family:'Aprila';
@@ -377,6 +375,8 @@ body{
   2px 2px 8px rgba(255,255,255,0.4);
 
   transition:0.15s;
+
+  z-index:10;
 }
 
 
@@ -1204,9 +1204,9 @@ document.getElementById("backBtn");
 const previewPrice =
 document.getElementById("previewPrice");
 
-let posX = 0;
+let posX = 50;
 
-let posY = 0;
+let posY = 50;
 
 const upBtn =
 document.getElementById("upBtn");
@@ -1279,10 +1279,10 @@ backBtn.onclick = ()=>{
 function updatePreview(){
 
   previewPrice.style.left =
-    posX + 'px';
+    posX + '%';
 
   previewPrice.style.top =
-    posY + 'px';
+    posY + '%';
 
 }
 
