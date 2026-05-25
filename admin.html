@@ -360,9 +360,9 @@ body{
 
   position:absolute;
 
-  left:50%;
+  left:120px;
 
-  top:50%;
+  top:120px;
 
   font-size:52px;
 
@@ -373,18 +373,16 @@ body{
   font-weight:bold;
 
   background:
-  rgba(0,0,0,0.45);
+  rgba(0,0,0,0.55);
 
-  padding:12px 24px;
+  padding:10px 22px;
 
   border-radius:18px;
 
-  text-shadow:
-  0 0 15px rgba(0,0,0,0.9);
+  z-index:9999;
 
-  z-index:999;
-
-  transition:0.15s;
+  box-shadow:
+  0 0 20px rgba(0,0,0,0.5);
 }
 
 
@@ -1212,9 +1210,9 @@ document.getElementById("backBtn");
 const previewPrice =
 document.getElementById("previewPrice");
 
-let posX = 50;
+let posX = 120;
 
-let posY = 50;
+let posY = 120;
 
 const upBtn =
 document.getElementById("upBtn");
@@ -1287,10 +1285,10 @@ backBtn.onclick = ()=>{
 function updatePreview(){
 
   previewPrice.style.left =
-    posX + '%';
+    posX + 'px';
 
   previewPrice.style.top =
-    posY + '%';
+    posY + 'px';
 
 }
 
