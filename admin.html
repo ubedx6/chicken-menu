@@ -366,31 +366,28 @@ body{
 
   position:absolute;
 
-  left:70vw;
+  left:120px;
 
-  top:82vh;
-
-  width:30vw;
+  top:120px;
 
   white-space:nowrap;
 
   text-align:center;
 
-  z-index:5;
+  z-index:999999;
 
-  font-size:90px;
+  font-size:120px;
 
   font-family:'Aprila';
 
-  color:#0b4d00;
+  color:red;
 
   font-weight:bold;
 
   letter-spacing:2px;
 
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-
-  z-index:999999;
+  text-shadow:
+  2px 2px 8px rgba(0,0,0,0.3);
 
   transition:0.15s;
 
@@ -713,7 +710,7 @@ input:focus{
 
     <div class="tvLink">
 
-      https://amazing-arithmetic-236c52.netlify.app/
+      https://ubedx6.github.io/chicken-menu/
 
     </div>
 
@@ -774,7 +771,7 @@ input:focus{
 
       <div id="previewPrice">
 
-        hello
+        Test
 
       </div>
 
@@ -1129,7 +1126,7 @@ onValue(eggsRef, (snapshot)=>{
 });
 
 
-/*
+
 onValue(settingsRef,(snapshot)=>{
 
   const data = snapshot.val();
@@ -1141,7 +1138,7 @@ onValue(settingsRef,(snapshot)=>{
   updatePreview();
 
 });
-*/
+
 
 
 
@@ -1226,6 +1223,8 @@ document.getElementById("previewPrice");
 let posX = 0;
 
 let posY = 0;
+
+updatePreview();
 
 const upBtn =
 document.getElementById("upBtn");
