@@ -366,9 +366,11 @@ body{
 
   position:absolute;
 
-  left:120px;
+  left:0;
 
-  top:120px;
+  top:0;
+
+  transform:translate(-50%,-50%);
 
   white-space:nowrap;
 
@@ -1139,6 +1141,17 @@ onValue(settingsRef,(snapshot)=>{
 
 });
 
+
+onValue(ref(db,'menu/settings'), (snapshot)=>{
+
+  const data = snapshot.val();
+
+  posX = data.x || 0;
+  posY = data.y || 0;
+
+  updatePreview();
+
+});
 
 
 
