@@ -297,6 +297,17 @@ setInterval(() => {
   document.title = "Fine Menu " + Date.now();
 }, 30000);
 
+setInterval(() => {
+
+  const body = document.body;
+
+  body.style.opacity = '0.9999';
+
+  setTimeout(() => {
+    body.style.opacity = '1';
+  }, 100);
+
+}, 60000);
 
 </script>
 
